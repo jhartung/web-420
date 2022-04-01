@@ -34,7 +34,7 @@ paths:
         description: ""
         required: true
         schema:
-          $ref: "#/definitions/Pet"
+          $ref: "#/definitions/Composers"
       responses:
         "200":
           description: "User Added"
@@ -61,4 +61,12 @@ paths:
           description: "Server Exception"
         "501":
           description: "MongoDB Exception"
- 
+          
+definitions: 
+  Composers:
+      type: "object"
+      properties:
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
