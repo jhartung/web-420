@@ -1,0 +1,64 @@
+openapi: "3.0.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "Composer API"
+paths:
+  /composers:
+    get:
+      tags:
+      - "Composers"
+      summary: "returns a list of composer documents"
+      description: ""
+      operationId: "findAllComposers"
+      responses:
+        "200":
+          description: "Composer documents"
+        "500":
+          description: "Server Exception"
+        "501":
+          description: "MongoDB Exception"
+    post:
+      tags:
+      - "Composers"
+      summary: "Create a new composer object"
+      description: "API for adding new composer objects"
+      operationId: "createComposer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Composer's Information"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Pet"
+      responses:
+        "200":
+          description: "User Added"
+        "500":
+          description: "Server Exception"
+        "501":
+          description: "MongoDB Exception"
+  /composers/{id}:
+    get:
+      tags:
+      - "Composers"
+      summary: "Returns a composer document"
+      description: "API for returning a single composer object from MongoDB"
+      operationId: "findPetsByStatus"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "The composerid requested by the user"
+        required: true
+      responses:
+        "200":
+          description: "Composer document in JSON format"
+        "500":
+          description: "Server Exception"
+        "501":
+          description: "MongoDB Exception"
+ 
