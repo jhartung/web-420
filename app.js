@@ -14,6 +14,11 @@ var http = require("http");
 var swaggerUiExpress = require("swagger-ui-express");
 var swaggerJsdoc = require("swagger-jsdoc");
 var mongoose = require("mongoose");
+var composerAPI = require("./routes/hartung-composer-routes");
+
+// database information
+var mongoose = require("mongoose");
+var mongoDB = "mongodb+srv://admin:cHYll5RqSlCIrNHA@buwebdev-cluster-1.gzdv5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 var app = express();
 
@@ -36,6 +41,16 @@ const options = {
 const openapiSpecifications = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUiExpress.serve, swaggerUiExpress.setup(openapiSpecifications));
+app.use('/api', composerAPI);
+
+//Mongoose connection information
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connected error:"));
+db.once("open", function () {
+    console.log("Application connected to MongoDB instance");
+});
 
 http.createServer(app).listen(app.get("port"), function () {
     console.log(`Application started and listening on port ${app.get('port')}`);
