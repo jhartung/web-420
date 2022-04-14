@@ -15,10 +15,11 @@ var swaggerUiExpress = require("swagger-ui-express");
 var swaggerJsdoc = require("swagger-jsdoc");
 var mongoose = require("mongoose");
 var composerAPI = require("./routes/hartung-composer-routes");
+var personAPI = require("./routes/hartung-person-routes");
 
 // database information
 var mongoose = require("mongoose");
-var mongoDB = "mongodb+srv://admin:cHYll5RqSlCIrNHA@buwebdev-cluster-1.gzdv5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var mongoDB = "mongodb+srv://admin:cHYll5RqSlCIrNHA@buwebdev-cluster-1.gzdv5.mongodb.net/web420DB?retryWrites=true&w=majority";
 
 var app = express();
 
@@ -42,6 +43,7 @@ const openapiSpecifications = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUiExpress.serve, swaggerUiExpress.setup(openapiSpecifications));
 app.use('/api', composerAPI);
+app.use('/api', personAPI);
 
 //Mongoose connection information
 mongoose.connect(mongoDB);
