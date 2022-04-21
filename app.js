@@ -16,6 +16,7 @@ var swaggerJsdoc = require("swagger-jsdoc");
 var mongoose = require("mongoose");
 var composerAPI = require("./routes/hartung-composer-routes");
 var personAPI = require("./routes/hartung-person-routes");
+var userAPI = require("./routes/hartung-session-routes")
 
 // database information
 var mongoose = require("mongoose");
@@ -44,6 +45,7 @@ const openapiSpecifications = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUiExpress.serve, swaggerUiExpress.setup(openapiSpecifications));
 app.use('/api', composerAPI);
 app.use('/api', personAPI);
+app.use('/api', userAPI);
 
 //Mongoose connection information
 mongoose.connect(mongoDB);
