@@ -139,7 +139,7 @@ const Customer = require ('../models/hartung-customer');
 
 router.post('/customers/:userName/invoices', async(req, res) => {
     try {
-        Customer.findOne({'username': req.params.userName}, function(err, customer) {
+        Customer.findOne({'userName': req.params.userName}, function(err, customer) {
             if (err) {
                 console.log(err);
                 res.status(501).send({
