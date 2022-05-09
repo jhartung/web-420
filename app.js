@@ -18,6 +18,7 @@ var composerAPI = require("./routes/hartung-composer-routes");
 var personAPI = require("./routes/hartung-person-routes");
 var userAPI = require("./routes/hartung-session-routes")
 var customerAPI = require("./routes/hartung-node-shopper-routes")
+var teamAPI = require("./routes/hartung-team-routes")
 
 // database information
 var mongoose = require("mongoose");
@@ -48,6 +49,7 @@ app.use('/api', composerAPI);
 app.use('/api', personAPI);
 app.use('/api', userAPI);
 app.use('/api', customerAPI);
+app.use('/api', teamAPI);
 
 //Mongoose connection information
 mongoose.connect(mongoDB);
