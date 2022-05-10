@@ -60,6 +60,10 @@ db.once("open", function () {
     console.log("Application connected to MongoDB instance");
 });
 
+
+/*
 http.createServer(app).listen(app.get("port"), function () {
     console.log(`Application started and listening on port ${app.get('port')}`);
 })
+*/
+http:http.createServer(app).listen(app.get("port"), function() {console.log("Application started on port " + app.get("port"))});
