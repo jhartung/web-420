@@ -112,7 +112,7 @@ router.get('/teams', async(req, res) => {
                 res.status(200).send({
                     "message": "Player assigned to team"
                 })
-            
+
                 const newPlayer = {
                     firstName: req.body.firstName, 
                     lastName: req.body.lastName, 
