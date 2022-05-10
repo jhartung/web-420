@@ -13,5 +13,5 @@
         "mongoose": "^6.2.6",
         "swagger-jsdoc": "^6.1.0",
         "swagger-ui-express": "^4.3.0"
-    },
+    }
 }
